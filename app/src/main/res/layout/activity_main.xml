@@ -6,32 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.FirstAppTests.AppBarOverlay">
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <include layout="@layout/content_main" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <ImageView
+        android:id="@+id/welcomeScreen"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_height="731dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/welcomebackground"
+        android:cropToPadding="true"></ImageView>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="107dp"
-        android:background="?attr/colorPrimary"
-        app:layout_anchor="@+id/appBarLayout"
-        app:layout_anchorGravity="bottom|center"
-        app:popupTheme="@style/Theme.FirstAppTests.PopupOverlay" />
+    <ImageView
+        android:id="@+id/titleNemo"
+        android:layout_width="wrap_content"
+        android:layout_height="197dp"
+        android:cropToPadding="false"
+        android:src="@drawable/pixelnemotitle"></ImageView>
+    <RelativeLayout android:id="@+id/RelativeLayout01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#39BDF1"
+            android:text="Play"
+            android:translationX="170dp"
+            android:translationY="500dp" />
+    </RelativeLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
