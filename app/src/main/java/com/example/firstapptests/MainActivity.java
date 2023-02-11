@@ -2,7 +2,6 @@ package com.example.firstapptests;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -19,6 +18,7 @@ import com.example.firstapptests.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,16 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-//        binding.playButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent(getApplicationContext(),Icons.class);
-//                startActivity(i);
-//
-//            }
-//        });
-//    }
-
     }
+
+
 }

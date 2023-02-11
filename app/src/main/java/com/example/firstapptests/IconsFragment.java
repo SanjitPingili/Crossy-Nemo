@@ -9,16 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.firstapptests.databinding.FragmentSecondBinding;
+import com.example.firstapptests.databinding.FragmentIconsBinding;
 
 public class IconsFragment extends Fragment {
 
-    private FragmentSecondBinding binding;
+    private FragmentIconsBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentSecondBinding.inflate(inflater, container, false);
+        binding = FragmentIconsBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -26,7 +26,7 @@ public class IconsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
+        binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(IconsFragment.this)

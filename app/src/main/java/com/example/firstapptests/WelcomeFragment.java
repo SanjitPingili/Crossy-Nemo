@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.firstapptests.databinding.FragmentSecondBinding;
 import com.example.firstapptests.databinding.FragmentWelcomeBinding;
 
 
@@ -27,8 +26,7 @@ public class WelcomeFragment extends Fragment {
         return binding.getRoot();
 
     }
-
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         binding.playButton.setOnClickListener(new View.OnClickListener() {

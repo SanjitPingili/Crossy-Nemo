@@ -16,13 +16,13 @@
 
 
     <fragment
-        android:id="@+id/welcome"
-        android:name="com.example.firstapptests.WelcomeFragment"
-        android:label="@string/welcome_fragment"
-        tools:layout="@layout/fragment_welcome" >
-        <action
-            android:id="@+id/action_welcome_to_iconsBackground"
-            app:destination="@id/iconsBackground" />
+    android:id="@+id/welcome"
+    android:name="com.example.firstapptests.WelcomeFragment"
+    android:label="@string/welcome_fragment"
+    tools:layout="@layout/fragment_welcome" >
+    <action
+        android:id="@+id/action_welcome_to_iconsBackground"
+        app:destination="@id/iconsBackground" />
     </fragment>
 
 
