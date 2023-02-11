@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".WelcomeFragment">
 
     <ImageView
         android:id="@+id/welcomeScreen"
@@ -20,15 +20,17 @@
         android:layout_height="197dp"
         android:cropToPadding="false"
         android:src="@drawable/pixelnemotitle"></ImageView>
-    <RelativeLayout android:id="@+id/RelativeLayout01"
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout01"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
-
 
         <Button
             android:id="@+id/playButton"
             android:layout_width="78dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:backgroundTint="#39BDF1"
             android:text="Play"
             android:translationX="170dp"
