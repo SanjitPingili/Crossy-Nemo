@@ -4,4 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="welcome_fragment">Welcome Fragment</string>
     <string name="icons_fragment_label">Icons Fragment</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
 </resources>
