@@ -18,9 +18,10 @@ public class GameScreen extends AppCompatActivity {
         Intent intent = getIntent();
         String userName = intent.getStringExtra("Username");
         String difficulty = intent.getStringExtra("Difficulty");
+        String character = intent.getStringExtra("Character");
 
         gameText = findViewById(R.id.gameText);
-        gameText.setText(String.format("Player: %s \n Difficulty: %s", userName, difficulty));
+        gameText.setText(String.format("Player: %s \n Difficulty: %s \n Character: %s", userName, difficulty, character));
 
 
     }
