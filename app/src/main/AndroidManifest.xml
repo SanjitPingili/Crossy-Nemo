@@ -20,6 +20,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity android:name=".Icons"
+            android:label="Choose Your Character!!">
+        </activity>
+
+        <activity android:name=".TurtleFragment"
+            android:label="Selected Turtle!">
+        </activity>
+        <activity android:name=".DoriFragment"
+            android:label="Selected Dori!">
+        </activity>
+        <activity android:name=".GameScreen"
+            android:label="Started Game!">
+        </activity>
     </application>
 
 </manifest>

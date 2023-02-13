@@ -4,26 +4,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph">
 
-    <fragment
-        android:id="@+id/iconsBackground"
-        android:name="com.example.firstapptests.IconsFragment"
-        android:label="@string/icons_fragment_label"
-        tools:layout="@layout/fragment_icons">
-        <action
-            android:id="@+id/action_iconsBackground_to_welcome"
-            app:destination="@id/welcome" />
-    </fragment>
-
-
-    <fragment
-    android:id="@+id/welcome"
-    android:name="com.example.firstapptests.WelcomeFragment"
-    android:label="@string/welcome_fragment"
-    tools:layout="@layout/fragment_welcome" >
-    <action
-        android:id="@+id/action_welcome_to_iconsBackground"
-        app:destination="@id/iconsBackground" />
-    </fragment>
-
-
 </navigation>
