@@ -120,7 +120,7 @@
         android:layout_width="80dp"
         android:layout_height="57dp"
         android:background="@android:color/holo_blue_dark"
-        android:contentDescription="Dori"
+        android:contentDescription="Dory"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/editUsername"
         app:layout_constraintStart_toEndOf="@+id/nemoBtn"
