@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:backgroundTint="#39BDF1"
-            android:text="Plafeway"
+            android:text="Play Now"
             android:translationX="170dp"
             android:translationY="500dp" />
     </RelativeLayout>
