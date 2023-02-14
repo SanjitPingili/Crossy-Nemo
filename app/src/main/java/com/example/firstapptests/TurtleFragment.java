@@ -18,9 +18,6 @@ import androidx.navigation.fragment.NavHostFragment;
 
 public class TurtleFragment extends AppCompatActivity {
 
-    private int lives = 3;
-    private final String difficulty = "Hard";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

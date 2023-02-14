@@ -16,8 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class DoriFragment extends AppCompatActivity {
 
-    private int lives = 5;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
