@@ -7,7 +7,9 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.246875" />
         <entry key="app/src/main/res/drawable/icons.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/drawable/welcome.xml" value="0.17708333333333334" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14256236268747116" />
+        <entry key="app/src/main/res/layout/activity_config_screen.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/activity_game_screen.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.10069640081543084" />
         <entry key="app/src/main/res/layout/fragment_dori.xml" value="0.15182312177518498" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.2144668595306176" />
@@ -17,6 +19,8 @@
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.25399720946733445" />
         <entry key="app/src/main/res/layout/game_main.xml" value="0.1670686454547836" />
         <entry key="app/src/main/res/layout/icons.xml" value="0.17930067911466893" />
+        <entry key="app/src/main/res/xml/checkstyle.xml" value="0.24592391304347827" />
+        <entry key="app/src/main/res/xml/chkstyle.xml" value="0.19375" />
       </map>
     </option>
   </component>
