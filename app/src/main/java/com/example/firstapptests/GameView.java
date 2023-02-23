@@ -18,6 +18,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private SafeTile safeTile1;
     private GoalTile goalTile;
     private RiverTile riverTile;
+    private KeyboardHandler keyHandler;
+
 
 
     public GameView(Context context) {
@@ -36,10 +38,15 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        characterSprite = new Sprite(getResizedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.nemo_icon), 300, 300));
+        characterSprite = new Sprite(getResizedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.doripixel), 300, 300));
+
         safeTile1 = new SafeTile(getResizedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.safetile), 1500, 200));
+
         goalTile = new GoalTile(getResizedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.goaltile), 1500, 200));
+
         riverTile = new RiverTile(getResizedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.rivertile), 1500, 800));
+        thread = new MainThread(getHolder(), this);
+
         thread.setRunning(true);
         thread.start();
     }
@@ -58,6 +65,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         }
     }
     public void update() {
+
 
     }
     @Override
@@ -82,8 +90,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         matrix.postScale(scaleWidth, scaleHeight);
 
         // "RECREATE" THE NEW BITMAP
-        Bitmap resizedBitmap =
-                Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
+        Bitmap resizedBitmap = Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
         bm.recycle();
         return resizedBitmap;
     }
