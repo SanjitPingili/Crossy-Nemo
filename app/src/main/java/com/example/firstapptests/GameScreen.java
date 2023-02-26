@@ -54,7 +54,7 @@ public class GameScreen extends AppCompatActivity {
                 ((ImageView)findViewById(R.id.spriteImage)).setImageResource(R.drawable.turtlenemo);
                 break;
         }
-        readyBtn = findViewById(R.id.utton);
+        readyBtn = findViewById(R.id.readyButton);
         readyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

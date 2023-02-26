@@ -16,11 +16,12 @@ public class MainThread extends Thread{
         this.gameView = gameView;
 
     }
+
+    // Main update logic, basically just keeps refreshing the Draw method to update the visuals.
     @Override
     public void run() {
         while (running) {
             canvas = null;
-
             try {
                 canvas = this.surfaceHolder.lockCanvas();
                 synchronized(surfaceHolder) {
