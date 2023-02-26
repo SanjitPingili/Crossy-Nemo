@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,17 +55,16 @@ public class ConfigScreen extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (userName.getText() == null || userName.getText().toString().isEmpty() || userName.getText().toString().trim().length() == 0) {
+                if (isValidUserName()) {
                     Toast.makeText(ConfigScreen.this, "Enter Valid Username", Toast.LENGTH_SHORT).show();
-                } else if (difficultySelector.getCheckedRadioButtonId() == -1) {
+                } else if (isDifficultySelected()) {
                     Toast.makeText(ConfigScreen.this, "Choose a difficulty", Toast.LENGTH_SHORT).show();
-                } else if (selectedCharacter == null) {
+                } else if (isCharacterSelected()) {
                     Toast.makeText(ConfigScreen.this, "Choose a character", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(ConfigScreen.this, GameScreen.class);
                     intent.putExtra("Username", userName.getText().toString());
-                    String difficulty = ((RadioButton)findViewById(difficultySelector.getCheckedRadioButtonId())).getText().toString();
-                    intent.putExtra("Difficulty", difficulty);
+                    intent.putExtra("Difficulty", getDifficulty());
                     intent.putExtra("Character", selectedCharacter);
                     startActivity(intent);
                 }
@@ -83,6 +83,28 @@ public class ConfigScreen extends AppCompatActivity {
         imageButtons[2] = doriBtn;
         imageButtons[3] = nemoBtn;
     }
+    boolean checkNullUserName(Editable userName) {
+        return userName != null;
+    }
+    boolean checkUserNameString(String userName) {
+        return !(userName.toString().isEmpty()) && userName.toString().trim().length() != 0;
+    }
+    // Gets the difficulty from the radio group
+    private String getDifficulty() {
+        return ((RadioButton)findViewById(difficultySelector.getCheckedRadioButtonId())).getText().toString();
+    }
+    // Checks if a character is selected
+    private boolean isCharacterSelected() {
+        return selectedCharacter != null;
+    }
+    private boolean isDifficultySelected() {
+        return difficultySelector.getCheckedRadioButtonId() != -1;
+    }
+    // Checks if username is valid
+    private boolean isValidUserName() {
+        return !checkNullUserName(userName.getText()) && !checkUserNameString(userName.getText().toString());
+    }
+
 
 
 }
