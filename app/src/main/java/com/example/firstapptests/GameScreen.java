@@ -23,8 +23,27 @@ public class GameScreen extends AppCompatActivity {
         String userName = intent.getStringExtra("Username");
         String difficulty = intent.getStringExtra("Difficulty");
         String character = intent.getStringExtra("Character");
-        int lives = 0;
+        int lives = getLives(difficulty);
 
+
+
+        gameText = findViewById(R.id.gameText);
+        gameText.setText(String.format("Player: %s \n Difficulty: %s \n Character: %s \n Lives: %d", userName, difficulty, character, lives));
+        setSprite(character);
+
+
+
+        readyBtn = findViewById(R.id.readyButton);
+        readyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(GameScreen.this, CrossRoad.class));
+            }
+        });
+    }
+
+    int getLives(String difficulty) {
+        int lives = 0;
         switch (difficulty) {
             case "Easy":
                 lives = 10;
@@ -36,30 +55,29 @@ public class GameScreen extends AppCompatActivity {
                 lives = 1;
                 break;
         }
+        return lives;
+    }
 
-        gameText = findViewById(R.id.gameText);
-        gameText.setText(String.format("Player: %s \n Difficulty: %s \n Character: %s \n Lives: %d", userName, difficulty, character, lives));
-
+    int getCharacterSprite(String character) {
+        int result = 0;
         switch (character) {
             case "Nemo":
-                ((ImageView)findViewById(R.id.spriteImage)).setImageResource(R.drawable.nemo_icon);
+                result = R.drawable.nemo_icon;
                 break;
             case "Dory":
-                ((ImageView)findViewById(R.id.spriteImage)).setImageResource(R.drawable.doripixel);
+                result = R.drawable.doripixel;
                 break;
             case "turtle1":
-                ((ImageView)findViewById(R.id.spriteImage)).setImageResource(R.drawable.turtleofficial);
+                result = R.drawable.turtleofficial;
                 break;
             case "turtle2":
-                ((ImageView)findViewById(R.id.spriteImage)).setImageResource(R.drawable.turtlenemo);
+                result = R.drawable.turtlenemo;
                 break;
         }
-        readyBtn = findViewById(R.id.readyButton);
-        readyBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(GameScreen.this, CrossRoad.class));
-            }
-        });
+        return result;
     }
+    void setSprite(String character) {
+        ((ImageView)findViewById(R.id.spriteImage)).setImageResource(getCharacterSprite(character));
+    }
+
 }

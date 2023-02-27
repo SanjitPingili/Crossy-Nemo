@@ -9,7 +9,6 @@ import android.widget.RadioGroup;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +29,8 @@ public class ConfigScreenTests {
     @Before
     public void setUp() throws Exception {
         // Create a new ConfigScreen instance and set up views
-        configScreen = mock(ConfigScreen.class);
+//        configScreen = mock(ConfigScreen.class);
+        configScreen = (new ConfigScreen());
         userName = new EditText(configScreen);
         difficultySelector = new RadioGroup(configScreen);
         submitBtn = new Button(configScreen);
@@ -43,7 +43,7 @@ public class ConfigScreenTests {
 
     @Test
     public void checkNullName() {
-        assertEquals(false, configScreen.checkNullUserName(null));
+        assertEquals(true, configScreen.isNullUserName(null));
     }
     @Test
     public void checkEmptyName() {

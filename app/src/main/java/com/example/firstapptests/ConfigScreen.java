@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -55,11 +54,11 @@ public class ConfigScreen extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isValidUserName()) {
+                if (!isValidUserName()) {
                     Toast.makeText(ConfigScreen.this, "Enter Valid Username", Toast.LENGTH_SHORT).show();
-                } else if (isDifficultySelected()) {
+                } else if (!isDifficultySelected()) {
                     Toast.makeText(ConfigScreen.this, "Choose a difficulty", Toast.LENGTH_SHORT).show();
-                } else if (isCharacterSelected()) {
+                } else if (!isCharacterSelected()) {
                     Toast.makeText(ConfigScreen.this, "Choose a character", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(ConfigScreen.this, GameScreen.class);
@@ -83,8 +82,8 @@ public class ConfigScreen extends AppCompatActivity {
         imageButtons[2] = doriBtn;
         imageButtons[3] = nemoBtn;
     }
-    boolean checkNullUserName(Editable userName) {
-        return userName != null;
+    boolean isNullUserName(Editable userName) {
+        return userName == null;
     }
     boolean checkUserNameString(String userName) {
         return !(userName.toString().isEmpty()) && userName.toString().trim().length() != 0;
@@ -102,7 +101,7 @@ public class ConfigScreen extends AppCompatActivity {
     }
     // Checks if username is valid
     private boolean isValidUserName() {
-        return !checkNullUserName(userName.getText()) && !checkUserNameString(userName.getText().toString());
+        return !isNullUserName(userName.getText()) && checkUserNameString(userName.getText().toString());
     }
 
 
