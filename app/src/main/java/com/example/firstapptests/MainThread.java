@@ -3,11 +3,20 @@ package com.example.firstapptests;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
-public class MainThread extends Thread{
+public class MainThread extends Thread {
     private SurfaceHolder surfaceHolder;
     private GameView gameView;
     private boolean running;
-    public static Canvas canvas;
+
+    public static Canvas getCanvas() {
+        return canvas;
+    }
+
+    public static void setCanvas(Canvas canvas) {
+        MainThread.canvas = canvas;
+    }
+
+    private static Canvas canvas;
 
     public MainThread(SurfaceHolder surfaceHolder, GameView gameView) {
 
@@ -24,11 +33,11 @@ public class MainThread extends Thread{
             canvas = null;
             try {
                 canvas = this.surfaceHolder.lockCanvas();
-                synchronized(surfaceHolder) {
+                synchronized (surfaceHolder) {
                     this.gameView.update();
                     this.gameView.draw(canvas);
                 }
-            } catch (Exception e) {} finally {
+            } catch (Exception e) { } finally {
                 if (canvas != null) {
                     try {
                         surfaceHolder.unlockCanvasAndPost(canvas);

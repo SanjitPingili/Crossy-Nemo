@@ -1,11 +1,8 @@
 package com.example.firstapptests;
 
 import android.app.Activity;
-import android.graphics.Point;
-import android.hardware.display.DisplayManager;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -16,7 +13,7 @@ public class CrossRoad extends Activity {
 
     private GameView gameView;
 
-    protected void onCreate (Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);

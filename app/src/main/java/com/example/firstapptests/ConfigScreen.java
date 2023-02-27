@@ -42,10 +42,10 @@ public class ConfigScreen extends AppCompatActivity {
 
         for (ImageButton btn : imageButtons) {
             btn.setOnClickListener(view -> {
-                selectedCharacter = ((ImageButton)view).getContentDescription().toString();
+                selectedCharacter = ((ImageButton) view).getContentDescription().toString();
                 for (ImageButton btn1 : imageButtons) {
-                    btn1.setBackgroundColor(Color.parseColor("#0099cc"));}
-                ((ImageButton)view).setBackgroundColor(Color.parseColor("#224782"));
+                    btn1.setBackgroundColor(Color.parseColor("#0099cc")); }
+                ((ImageButton) view).setBackgroundColor(Color.parseColor("#224782"));
             });
         }
 
@@ -55,11 +55,14 @@ public class ConfigScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!isValidUserName()) {
-                    Toast.makeText(ConfigScreen.this, "Enter Valid Username", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConfigScreen.this,
+                            "Enter Valid Username", Toast.LENGTH_SHORT).show();
                 } else if (!isDifficultySelected()) {
-                    Toast.makeText(ConfigScreen.this, "Choose a difficulty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConfigScreen.this,
+                            "Choose a difficulty", Toast.LENGTH_SHORT).show();
                 } else if (!isCharacterSelected()) {
-                    Toast.makeText(ConfigScreen.this, "Choose a character", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConfigScreen.this,
+                            "Choose a character", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(ConfigScreen.this, GameScreen.class);
                     intent.putExtra("Username", userName.getText().toString());
@@ -90,7 +93,8 @@ public class ConfigScreen extends AppCompatActivity {
     }
     // Gets the difficulty from the radio group
     private String getDifficulty() {
-        return ((RadioButton)findViewById(difficultySelector.getCheckedRadioButtonId())).getText().toString();
+        return ((RadioButton) findViewById(difficultySelector
+                .getCheckedRadioButtonId())).getText().toString();
     }
     // Checks if a character is selected
     private boolean isCharacterSelected() {
@@ -101,7 +105,8 @@ public class ConfigScreen extends AppCompatActivity {
     }
     // Checks if username is valid
     private boolean isValidUserName() {
-        return !isNullUserName(userName.getText()) && checkUserNameString(userName.getText().toString());
+        return !isNullUserName(userName.getText())
+                && checkUserNameString(userName.getText().toString());
     }
 
 

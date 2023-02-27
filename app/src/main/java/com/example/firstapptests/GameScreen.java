@@ -28,7 +28,8 @@ public class GameScreen extends AppCompatActivity {
 
 
         gameText = findViewById(R.id.gameText);
-        gameText.setText(String.format("Player: %s \n Difficulty: %s \n Character: %s \n Lives: %d", userName, difficulty, character, lives));
+        gameText.setText(String.format("Player: %s \n Difficulty: %s \n Character: %s "
+                + "\n Lives: %d", userName, difficulty, character, lives));
         setSprite(character);
 
 
@@ -45,15 +46,18 @@ public class GameScreen extends AppCompatActivity {
     int getLives(String difficulty) {
         int lives = 0;
         switch (difficulty) {
-            case "Easy":
-                lives = 10;
-                break;
-            case "Medium":
-                lives = 5;
-                break;
-            case "Hard":
-                lives = 1;
-                break;
+        case "Easy":
+            lives = 10;
+            break;
+        case "Medium":
+            lives = 5;
+            break;
+        case "Hard":
+            lives = 1;
+            break;
+        default:
+            lives = 0;
+            break;
         }
         return lives;
     }
@@ -61,23 +65,27 @@ public class GameScreen extends AppCompatActivity {
     int getCharacterSprite(String character) {
         int result = 0;
         switch (character) {
-            case "Nemo":
-                result = R.drawable.nemo_icon;
-                break;
-            case "Dory":
-                result = R.drawable.doripixel;
-                break;
-            case "turtle1":
-                result = R.drawable.turtleofficial;
-                break;
-            case "turtle2":
-                result = R.drawable.turtlenemo;
-                break;
+        case "Nemo":
+            result = R.drawable.nemo_icon;
+            break;
+        case "Dory":
+            result = R.drawable.doripixel;
+            break;
+        case "turtle1":
+            result = R.drawable.turtleofficial;
+            break;
+        case "turtle2":
+            result = R.drawable.turtlenemo;
+            break;
+        default:
+            result = 0;
+            break;
         }
         return result;
     }
     void setSprite(String character) {
-        ((ImageView)findViewById(R.id.spriteImage)).setImageResource(getCharacterSprite(character));
+        ((ImageView) findViewById(R.id.spriteImage))
+                .setImageResource(getCharacterSprite(character));
     }
 
 }
