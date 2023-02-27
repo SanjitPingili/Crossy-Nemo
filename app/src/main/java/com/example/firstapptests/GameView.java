@@ -84,7 +84,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.nemo_icon);
         characterSprite = new Sprite(getResizedBitmap(bm, 300, 300),400, 1400, 10, screenX, screenY);
         // tile Stuff
-        safeTile1 = new SafeTile(getResizedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.safetile), screenX, 200));
+        safeTile1 = new SafeTile(getResizedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.safetile), screenX, 150));
         goalTile = new GoalTile(getResizedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.goaltile), screenX, 200));
         riverTile = new RiverTile(getResizedBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.rivertile), screenX, 800));
         thread.setRunning(true);
