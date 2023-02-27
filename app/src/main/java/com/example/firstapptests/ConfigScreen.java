@@ -41,13 +41,11 @@ public class ConfigScreen extends AppCompatActivity {
         submitBtn = findViewById(R.id.config_submit_btn);
 
         for (ImageButton btn : imageButtons) {
-            btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    selectedCharacter = ((ImageButton)view).getContentDescription().toString();
-                    for (ImageButton btn : imageButtons) {btn.setBackgroundColor(Color.parseColor("#0099cc"));}
-                    ((ImageButton)view).setBackgroundColor(Color.parseColor("#224782"));
-                }
+            btn.setOnClickListener(view -> {
+                selectedCharacter = ((ImageButton)view).getContentDescription().toString();
+                for (ImageButton btn1 : imageButtons) {
+                    btn1.setBackgroundColor(Color.parseColor("#0099cc"));}
+                ((ImageButton)view).setBackgroundColor(Color.parseColor("#224782"));
             });
         }
 
