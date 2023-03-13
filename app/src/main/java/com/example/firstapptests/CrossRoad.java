@@ -1,10 +1,14 @@
 package com.example.firstapptests;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 /**
  * This class is the link btwn the GameView and the Canvas where we are drawing stuff
@@ -23,12 +27,21 @@ public class CrossRoad extends Activity {
         // on below line we are getting metrics for display using window manager.
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
-        int screenWidth = displayMetrics.widthPixels;
-        int screenHeight = displayMetrics.heightPixels;
+        Constants.SCREEN_WIDTH = displayMetrics.widthPixels;
+        Constants.SCREEN_HEIGHT = displayMetrics.heightPixels;
         // The Width and Height of the AVD display is used to calculate bounds for sprite.
+//        Bundle extras = getIntent().getExtras();
+//        byte[] b = extras.getByteArray("picture");
+//
+//        Bitmap bmp = BitmapFactory.decodeByteArray(b, 0, b.length);
+//        ImageView image = (ImageView) findViewById(R.id.imageView1);
+
+//        image.setImageBitmap(bmp);
+        Bundle intent = getIntent().getExtras();
+        String characterNeeded = (String) intent.get("charUsed");
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        gameView = new GameView(this, screenWidth, screenHeight);
+        gameView = new GameView(this, characterNeeded);
         setContentView(gameView); // This allows us to work off the canvas
     }
 }

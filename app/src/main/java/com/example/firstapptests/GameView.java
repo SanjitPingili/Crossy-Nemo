@@ -10,6 +10,9 @@ import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 //import androidx.annotation.MainThread;
 
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
@@ -17,24 +20,23 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private Sprite characterSprite;
     private SafeTile safeTile1;
     private GoalTile goalTile;
+    private SharkManager sharkManager;
     private RiverTile riverTile;
     private Canvas canvas = getHolder().lockCanvas();
-    private int screenX = 0;
-    private int screenY = 0;
     private int score = 0;
+    String c;
 
-    public GameView(Context context, int screenX, int screenY) {
+    public GameView(Context context, String c) {
         super(context);
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
+        this.c = c;
         setFocusable(true);
-        this.screenX = screenX; // Gets the Width of Screen Display
-        this.screenY = screenY; // Gets the Height of Screen Display
+
     }
 
-    public void update() {
-        // update the sprite's position based on keyboard input
-
+    public void update(){
+        sharkManager.update();
     }
 
     // KEY MOVEMENT
@@ -66,8 +68,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     }
 
 
-
-
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 
@@ -75,21 +75,47 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-
         // Character Declaration
+
         Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.nemo_icon);
-        characterSprite = new Sprite(getResizedBitmap(bm, 300, 300),
-                 400, 1400, 10, screenX, screenY);
+        sharkManager = new SharkManager(getResizedBitmap(bm, 100, 100), 30);
+        Bitmap bm1 = BitmapFactory.decodeResource(getResources(), getCharacterSprite(c));
+        characterSprite = new Sprite(getResizedBitmap(bm1, 200, 200),
+                 430, 1570);
         // tile Stuff
         safeTile1 = new SafeTile(getResizedBitmap(BitmapFactory
-                .decodeResource(getResources(), R.drawable.safetile), screenX, 150));
+                .decodeResource(getResources(), R.drawable.safetile), Constants.SCREEN_WIDTH, 150));
         goalTile = new GoalTile(getResizedBitmap(BitmapFactory.decodeResource(getResources(),
-                R.drawable.goaltile), screenX, 200));
+                R.drawable.goaltile), Constants.SCREEN_WIDTH, 200));
         riverTile = new RiverTile(getResizedBitmap(BitmapFactory.decodeResource(getResources(),
-                R.drawable.rivertile), screenX, 800));
+                R.drawable.rivertile), Constants.SCREEN_WIDTH, 800));
+
+        Constants.INIT_TIME = System.currentTimeMillis();
         thread.setRunning(true);
         thread.start();
 
+    }
+
+    int getCharacterSprite(String character) {
+        int result = 0;
+        switch (character) {
+            case "Nemo":
+                result = R.drawable.nemo_icon;
+                break;
+            case "Dory":
+                result = R.drawable.doripixel;
+                break;
+            case "turtle1":
+                result = R.drawable.turtleofficial;
+                break;
+            case "turtle2":
+                result = R.drawable.turtlenemo;
+                break;
+            default:
+                result = 0;
+                break;
+        }
+        return result;
     }
 
 
@@ -109,24 +135,23 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         }
     }
 
-
-
-
     // this does the Character Update Work,
     // gets called in mainThread run method which causes it to update
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
+//        carManager.draw(canvas);
         if (canvas != null) {
             canvas.drawColor(Color.BLUE);
             safeTile1.draw(canvas);
             goalTile.draw(canvas);
             riverTile.draw(canvas);
             characterSprite.draw(canvas);
+            sharkManager.draw(canvas);
+
+
         }
     }
-
-
 
     // Resizes the bitmap or the image
     public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
