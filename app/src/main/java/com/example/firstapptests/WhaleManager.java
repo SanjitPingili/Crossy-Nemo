@@ -39,7 +39,7 @@ public class WhaleManager {
             startTime = Constants.INIT_TIME;
         }
         int elapsedTime = (int) (System.currentTimeMillis() - startTime);
-        System.out.println(elapsedTime);
+//        System.out.println(elapsedTime);
         startTime = System.currentTimeMillis();
 //        float speed = (float)(Math.sqrt(1 + (startTime - initTime)/2000.0))* Constants.SCREEN_WIDTH/(10000.0f);             //sets speed for cars to reach bottom of screen (10s)
 //        System.out.println("Speed is" + speed /10);
@@ -53,7 +53,7 @@ public class WhaleManager {
             whaleEnemies.remove(0);
             whaleEnemies.add(whaleEnemies.size() - 1,
                     new WhaleEnemy(image, xStart, 600, 20, 1));
-            xStart-=200;
+            xStart -= 200;
         }
     }
     public void draw(Canvas canvas, int score){

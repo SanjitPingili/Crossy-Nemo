@@ -1,18 +1,12 @@
 package com.example.firstapptests;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
 
-/**
- * This class is the link btwn the GameView and the Canvas where we are drawing stuff
- */
+
 public class CrossRoad extends Activity {
 
     private GameView gameView;
@@ -41,10 +35,15 @@ public class CrossRoad extends Activity {
         String characterNeeded = (String) intent.get("charUsed");
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        gameView = new GameView(this, characterNeeded);
-        setContentView(gameView); // This allows us to work off the canvas
+        setGameView(new GameView(this, characterNeeded));
+        setContentView(getGameView()); // This allows us to work off the canvas
     }
+
     public GameView getGameView() {
         return gameView;
+    }
+
+    public void setGameView(GameView gameView) {
+        this.gameView = gameView;
     }
 }
