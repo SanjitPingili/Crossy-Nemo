@@ -21,6 +21,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private SafeTile safeTile1;
     private GoalTile goalTile;
     private SharkManager sharkManager;
+    private WhaleManager whaleManager;
+    private EelManager eelManager;
     private RiverTile riverTile;
     private Canvas canvas = getHolder().lockCanvas();
     private int score = 0;
@@ -37,6 +39,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     public void update(){
         sharkManager.update();
+        whaleManager.update();
+        eelManager.update();
     }
 
     // KEY MOVEMENT
@@ -77,11 +81,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     public void surfaceCreated(SurfaceHolder holder) {
         // Character Declaration
 
-        Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.nemo_icon);
+        Bitmap bm0 = BitmapFactory.decodeResource(getResources(), R.drawable.whale);
+        whaleManager = new WhaleManager(getResizedBitmap(bm0, 150, 150), 30);
+
+        Bitmap bm3 = BitmapFactory.decodeResource(getResources(), R.drawable.eel);
+        eelManager = new EelManager(getResizedBitmap(bm3, 300, 300), 30);
+
+        Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.shark);
         sharkManager = new SharkManager(getResizedBitmap(bm, 100, 100), 30);
+
         Bitmap bm1 = BitmapFactory.decodeResource(getResources(), getCharacterSprite(c));
         characterSprite = new Sprite(getResizedBitmap(bm1, 200, 200),
-                 430, 1570);
+                 700, 2100);
         // tile Stuff
         safeTile1 = new SafeTile(getResizedBitmap(BitmapFactory
                 .decodeResource(getResources(), R.drawable.safetile), Constants.SCREEN_WIDTH, 150));
@@ -148,6 +159,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             riverTile.draw(canvas);
             characterSprite.draw(canvas);
             sharkManager.draw(canvas);
+            whaleManager.draw(canvas);
+            eelManager.draw(canvas);
 
 
         }

@@ -3,21 +3,21 @@ package com.example.firstapptests;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
-public class WhaleEnemy implements Enemy{
+public class EelEnemy implements Enemy{
     private Bitmap image;
     private int x;
     private int y;
     private int speed;
-    private int WhaleGap;
+    private int EelGap;
 
     // Screen height = 1794 AND screen Width = 1080
 
-    public WhaleEnemy(Bitmap bmp, int x, int y, int WhaleGap, int speed) {
+    public EelEnemy(Bitmap bmp, int x, int y, int EelGap, int speed) {
         image = bmp;
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.WhaleGap = WhaleGap; // This isn't being used right either
+        this.EelGap = EelGap; // This isn't being used right either
     }
 
     public boolean offScreen() {
@@ -29,7 +29,7 @@ public class WhaleEnemy implements Enemy{
 
     @Override
     public void draw(Canvas canvas) {
-        canvas.drawBitmap(image, this.x + WhaleGap, this.y, null);
+        canvas.drawBitmap(image, this.x + EelGap, this.y, null);
     }
 
     @Override
@@ -49,4 +49,7 @@ public class WhaleEnemy implements Enemy{
     public void spawn() {
         // idk if we need this
     }
+
 }
+
+
