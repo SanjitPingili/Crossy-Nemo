@@ -44,4 +44,7 @@ public class CrossRoad extends Activity {
         gameView = new GameView(this, characterNeeded);
         setContentView(gameView); // This allows us to work off the canvas
     }
+    public GameView getGameView() {
+        return gameView;
+    }
 }

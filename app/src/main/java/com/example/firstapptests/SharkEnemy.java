@@ -12,7 +12,15 @@ public class SharkEnemy implements Enemy {
     private int SharkGap;
 
     // Screen height = 1794 AND screen Width = 1080
-
+    public SharkEnemy(int x, int y, int SharkGap, int speed) {
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+        this.SharkGap = SharkGap; // This isn't being used right either
+    }
+    public int getSpeed() {
+        return speed;
+    }
     public SharkEnemy(Bitmap bmp, int x, int y, int SharkGap, int speed) {
         image = bmp;
         this.x = x;
@@ -21,8 +29,8 @@ public class SharkEnemy implements Enemy {
         this.SharkGap = SharkGap; // This isn't being used right either
     }
 
-    public boolean offScreen() {
-        if (this.x <= 0) {
+    public static boolean offScreen(int x) {
+        if (x <= 0) {
             return true;
         }
         return false;

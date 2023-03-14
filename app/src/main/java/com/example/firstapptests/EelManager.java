@@ -14,7 +14,6 @@ public class EelManager {
         private int EelGap;
         private long startTime;
         private long initTime;
-        private int score = 0;
         private Bitmap image;
         private long timeLast;
         private final int ENEMY_SPACING = 24;
@@ -40,7 +39,7 @@ public class EelManager {
                 startTime = Constants.INIT_TIME;
             }
             int elapsedTime = (int) (System.currentTimeMillis() - startTime);
-            System.out.println(elapsedTime);
+//            System.out.println(elapsedTime);
             startTime = System.currentTimeMillis();
 //        float speed = (float)(Math.sqrt(1 + (startTime - initTime)/2000.0))* Constants.SCREEN_WIDTH/(10000.0f);             //sets speed for cars to reach bottom of screen (10s)
 //        System.out.println("Speed is" + speed /10);
@@ -55,10 +54,9 @@ public class EelManager {
                 eelEnemies.add(eelEnemies.size() - 1,
                         new EelEnemy(image, xStart, 1800, 20, 1));
                 xStart-=200;
-                score++;
             }
         }
-        public void draw(Canvas canvas){
+        public void draw(Canvas canvas, int score){
             for(EelEnemy whl: eelEnemies) {
                 whl.draw(canvas);
             }

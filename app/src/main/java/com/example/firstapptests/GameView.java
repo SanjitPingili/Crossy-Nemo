@@ -54,6 +54,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         case(KeyEvent.KEYCODE_DPAD_UP) :
             characterSprite.moveUp();
+            score = Math.max(score, calculateScore(characterSprite.getY()));
             invalidate();
             return true;
 
@@ -70,6 +71,25 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             return true;
         }
     }
+
+    public static int calculateScore(int charY) {
+        int newScore = 0;
+        int[] pointsArray = new int[]{4,5,6,7,8};
+//        int[] pointsBounds = new int[]{1250, 1050, 850, 100};
+        int[] pointsBounds = new int[]{1800, 1200, 850, 600, 100};
+        System.out.println("Current y value: " + charY);
+        int i = 0;
+        while (i < pointsArray.length && i < pointsBounds.length) {
+            if (charY < pointsBounds[i]) {
+                newScore += pointsArray[i];
+            } else {
+                break;
+            }
+            i++;
+        }
+        return newScore;
+    }
+
 
 
     @Override
@@ -158,9 +178,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             goalTile.draw(canvas);
             riverTile.draw(canvas);
             characterSprite.draw(canvas);
-            sharkManager.draw(canvas);
-            whaleManager.draw(canvas);
-            eelManager.draw(canvas);
+            sharkManager.draw(canvas, score);
+            whaleManager.draw(canvas, score);
+            eelManager.draw(canvas, score);
 
 
         }

@@ -16,7 +16,6 @@ public class SharkManager {
     private int sharkGap;
     private long startTime;
     private long initTime;
-    private int score = 0;
     private Bitmap image;
     private long timeLast;
     private final int ENEMY_SPACING = 30;
@@ -50,17 +49,16 @@ public class SharkManager {
         for(SharkEnemy shk : sharkEnemies){
             shk.update(10);
         }
-        if(sharkEnemies.get(0).offScreen()){        //if goes off screen
+        if(sharkEnemies.get(0).offScreen(sharkEnemies.get(0).getX())){        //if goes off screen
 //            int xStart = (int) (Math.random()*(Constants.SCREEN_WIDTH - playerGap));
             System.out.println("OFF SCREEN");
             sharkEnemies.remove(0);
             sharkEnemies.add(sharkEnemies.size() - 1,
                     new SharkEnemy(image, xStart, 1200, 20, 1));
             xStart-=200;
-            score++;
         }
     }
-    public void draw(Canvas canvas){
+    public void draw(Canvas canvas, int score){
         for(SharkEnemy shk: sharkEnemies) {
             shk.draw(canvas);
         }

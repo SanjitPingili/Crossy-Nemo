@@ -14,7 +14,6 @@ public class WhaleManager {
     private int WhaleGap;
     private long startTime;
     private long initTime;
-    private int score = 0;
     private Bitmap image;
     private long timeLast;
     private final int ENEMY_SPACING = 24;
@@ -55,10 +54,9 @@ public class WhaleManager {
             whaleEnemies.add(whaleEnemies.size() - 1,
                     new WhaleEnemy(image, xStart, 600, 20, 1));
             xStart-=200;
-            score++;
         }
     }
-    public void draw(Canvas canvas){
+    public void draw(Canvas canvas, int score){
         for(WhaleEnemy whl: whaleEnemies) {
             whl.draw(canvas);
         }
@@ -68,6 +66,7 @@ public class WhaleManager {
         canvas.drawText(""+score, 50,50 + paint.descent() - paint.ascent(), paint);
 
     }
+
 
     public ArrayList<WhaleEnemy> getWhaleEnemiesEnemies() {
         return whaleEnemies;
