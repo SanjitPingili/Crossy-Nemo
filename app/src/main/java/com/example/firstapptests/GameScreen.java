@@ -3,11 +3,15 @@ package com.example.firstapptests;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.ByteArrayOutputStream;
 
 public class GameScreen extends AppCompatActivity {
 
@@ -38,7 +42,14 @@ public class GameScreen extends AppCompatActivity {
         readyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(GameScreen.this, CrossRoad.class));
+//                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), getCharacterSprite(character));
+//                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//                bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+//                byte[] b = baos.toByteArray();
+                Intent intent = new Intent(GameScreen.this, CrossRoad.class);
+                intent.putExtra("charUsed", character);
+                System.out.println("Character is  " + character);
+                startActivity(intent);
             }
         });
     }
