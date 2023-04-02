@@ -40,17 +40,12 @@ public class SharkManager {
             startTime = Constants.INIT_TIME;
         }
         int elapsedTime = (int) (System.currentTimeMillis() - startTime);
-//        System.out.println(elapsedTime);
         startTime = System.currentTimeMillis();
-//        float speed = (float)(Math.sqrt(1 + (startTime - initTime)/2000.0))* Constants.SCREEN_WIDTH/(10000.0f);             //sets speed for cars to reach bottom of screen (10s)
-//        System.out.println("Speed is" + speed /10);
         int xStart = Constants.SCREEN_WIDTH - 200;
         for(SharkEnemy shk : sharkEnemies){
             shk.update(10);
         }
-        if(sharkEnemies.get(0).offScreen(sharkEnemies.get(0).getX())){        //if goes off screen
-//            int xStart = (int) (Math.random()*(Constants.SCREEN_WIDTH - playerGap));
-//            System.out.println("OFF SCREEN");
+        if(sharkEnemies.get(0).offScreen(sharkEnemies.get(0).getX())){
             sharkEnemies.remove(0);
             sharkEnemies.add(sharkEnemies.size() - 1,
                     new SharkEnemy(image, xStart, 1200, 20, 1));
@@ -67,7 +62,6 @@ public class SharkManager {
         canvas.drawText(""+score, 50,50 + paint.descent() - paint.ascent(), paint);
 
     }
-
     public ArrayList<SharkEnemy> getSharkEnemies() {
         return sharkEnemies;
     }

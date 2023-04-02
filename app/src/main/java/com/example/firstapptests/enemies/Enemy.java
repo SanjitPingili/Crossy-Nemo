@@ -1,4 +1,4 @@
-package com.example.firstapptests;
+package com.example.firstapptests.enemies;
 
 import android.graphics.Canvas;
 

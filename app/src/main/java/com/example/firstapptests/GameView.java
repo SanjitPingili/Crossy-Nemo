@@ -105,18 +105,20 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     public void surfaceCreated(SurfaceHolder holder) {
         // Character Declaration
 
+        Bitmap bm1 = BitmapFactory.decodeResource(getResources(), getCharacterSprite(c));
+        characterSprite = new Sprite(getResizedBitmap(bm1, 200, 200),
+                700, 2100);
+        
         Bitmap bm0 = BitmapFactory.decodeResource(getResources(), R.drawable.whale);
         whaleManager = new WhaleManager(getResizedBitmap(bm0, 150, 150), 30);
 
         Bitmap bm3 = BitmapFactory.decodeResource(getResources(), R.drawable.eel);
-        eelManager = new EelManager(getResizedBitmap(bm3, 300, 300), 30);
+        eelManager = new EelManager(getResizedBitmap(bm3, 300, 300), 30, characterSprite);
 
         Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.shark);
         sharkManager = new SharkManager(getResizedBitmap(bm, 100, 100), 30);
 
-        Bitmap bm1 = BitmapFactory.decodeResource(getResources(), getCharacterSprite(c));
-        characterSprite = new Sprite(getResizedBitmap(bm1, 200, 200),
-                 700, 2100);
+
         // tile Stuff
         safeTile1 = new SafeTile(getResizedBitmap(BitmapFactory
                 .decodeResource(getResources(), R.drawable.safetile), Constants.SCREEN_WIDTH, 150));
@@ -183,7 +185,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             riverTile.draw(canvas);
             characterSprite.draw(canvas);
             sharkManager.draw(canvas, score);
-            whaleManager.draw(canvas, score);
+            whaleManager.draw(canvas);
             eelManager.draw(canvas, score);
 
 

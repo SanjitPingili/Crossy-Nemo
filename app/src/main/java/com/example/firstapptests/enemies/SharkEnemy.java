@@ -2,9 +2,6 @@ package com.example.firstapptests.enemies;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.view.View;
-
-import com.example.firstapptests.Enemy;
 
 public class SharkEnemy implements Enemy {
     private Bitmap image;

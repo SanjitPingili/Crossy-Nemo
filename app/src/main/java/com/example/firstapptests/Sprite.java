@@ -86,4 +86,8 @@ public class Sprite {
         return false;
     }
 
+    public int[] getBoundingBox(){
+        return new int[] {x+30, y+30, x+150, y+150};
+    }
+
 }

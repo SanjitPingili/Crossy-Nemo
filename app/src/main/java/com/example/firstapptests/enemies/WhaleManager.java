@@ -58,15 +58,10 @@ public class WhaleManager {
             xStart -= 200;
         }
     }
-    public void draw(Canvas canvas, int score){
+    public void draw(Canvas canvas){
         for(WhaleEnemy whl: whaleEnemies) {
             whl.draw(canvas);
         }
-        Paint paint = new Paint();
-        paint.setTextSize(100);
-        paint.setColor(Color.BLACK);
-        canvas.drawText(""+score, 50,50 + paint.descent() - paint.ascent(), paint);
-
     }
 
 

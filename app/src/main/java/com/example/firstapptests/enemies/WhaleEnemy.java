@@ -3,8 +3,6 @@ package com.example.firstapptests.enemies;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
-import com.example.firstapptests.Enemy;
-
 public class WhaleEnemy implements Enemy {
     private Bitmap image;
     private int x;
