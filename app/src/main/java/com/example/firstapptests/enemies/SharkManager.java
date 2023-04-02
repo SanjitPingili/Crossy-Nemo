@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 import com.example.firstapptests.Constants;
+import com.example.firstapptests.Sprite;
 
 import java.util.ArrayList;
 
@@ -19,9 +20,12 @@ public class SharkManager {
     private long timeLast;
     private final int ENEMY_SPACING = 30;
 
-    public SharkManager(Bitmap bm, int sharkGap) {
+    private Sprite player;
+
+    public SharkManager(Bitmap bm, int sharkGap, Sprite player) {
         this.sharkGap = sharkGap;
         this.image = bm;
+        this.player = player;
         startTime = initTime = System.currentTimeMillis();
         sharkEnemies = new ArrayList<SharkEnemy>();
         populateSharks(Constants.SCREEN_WIDTH-200);
@@ -43,6 +47,9 @@ public class SharkManager {
         startTime = System.currentTimeMillis();
         int xStart = Constants.SCREEN_WIDTH - 200;
         for(SharkEnemy shk : sharkEnemies){
+            if (shk.intersectsBox(player.getBoundingBox())){
+                player.dead();
+            }
             shk.update(10);
         }
         if(sharkEnemies.get(0).offScreen(sharkEnemies.get(0).getX())){

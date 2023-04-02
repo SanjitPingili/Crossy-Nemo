@@ -25,7 +25,9 @@ public class Sprite {
 
     public void moveUp() {
         this.y = y > speed ? this.y - speed : this.y;
-//        System.out.println(this.x + "HEIGHT" + this.y);
+//        if (this.y < 550) {
+//            dead();
+//        }
     }
 
     public void moveDown() {
@@ -105,7 +107,7 @@ public class Sprite {
     }
 
     private void gameOver() {
-        System.out.println("Game Over.");
+        gameView.gameOver();
     }
 
     private int respawn() {

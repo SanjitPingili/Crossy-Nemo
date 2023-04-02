@@ -1,6 +1,7 @@
 package com.example.firstapptests;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -123,7 +124,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         eelManager = new EelManager(getResizedBitmap(bm3, 300, 300), 30, characterSprite);
 
         Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.shark);
-        sharkManager = new SharkManager(getResizedBitmap(bm, 100, 100), 30);
+        sharkManager = new SharkManager(getResizedBitmap(bm, 100, 100), 30, characterSprite);
 
 
         // tile Stuff
@@ -215,5 +216,14 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
         bm.recycle();
         return resizedBitmap;
+    }
+
+    public void gameOver() {
+        System.out.println("Game Over");
+        thread.setRunning(false);
+        Intent intent = new Intent(getContext(), EndGameScreen.class);
+        System.out.println(score);
+        intent.putExtra("score", score);
+        getContext().startActivity(intent);
     }
 }
