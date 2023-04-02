@@ -1,9 +1,11 @@
-package com.example.firstapptests;
+package com.example.firstapptests.enemies;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
-public class WhaleEnemy implements Enemy{
+import com.example.firstapptests.Enemy;
+
+public class WhaleEnemy implements Enemy {
     private Bitmap image;
     private int x;
     private int y;

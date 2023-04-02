@@ -10,8 +10,12 @@ import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import com.example.firstapptests.enemies.EelManager;
+import com.example.firstapptests.enemies.SharkManager;
+import com.example.firstapptests.enemies.WhaleManager;
+import com.example.firstapptests.tiles.GoalTile;
+import com.example.firstapptests.tiles.RiverTile;
+import com.example.firstapptests.tiles.SafeTile;
 
 //import androidx.annotation.MainThread;
 
@@ -77,7 +81,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         int[] pointsArray = new int[]{4,5,6,7,8};
 //        int[] pointsBounds = new int[]{1250, 1050, 850, 100};
         int[] pointsBounds = new int[]{1800, 1200, 850, 600, 100};
-        System.out.println("Current y value: " + charY);
+//        System.out.println("Current y value: " + charY);
         int i = 0;
         while (i < pointsArray.length && i < pointsBounds.length) {
             if (charY < pointsBounds[i]) {

@@ -2,6 +2,8 @@ package com.example.firstapptests;
 
 import static org.junit.Assert.assertEquals;
 
+import com.example.firstapptests.enemies.SharkEnemy;
+
 import org.junit.Before;
 import org.junit.Test;
 

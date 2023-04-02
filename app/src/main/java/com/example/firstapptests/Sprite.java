@@ -18,13 +18,13 @@ public class Sprite {
 
     public void moveUp() {
         this.y = y > speed ? this.y - speed : this.y;
-        System.out.println(this.x + "HEIGHT" + this.y);
+//        System.out.println(this.x + "HEIGHT" + this.y);
     }
 
     public void moveDown() {
         this.y = y < Constants.SCREEN_HEIGHT - speed - 220 ? this.y + speed : this.y;
-        System.out.println(this.x + "HEIGHT" + this.y);
-        System.out.println(Constants.SCREEN_HEIGHT + "AND" + Constants.SCREEN_WIDTH);
+//        System.out.println(this.x + "HEIGHT" + this.y);
+//        System.out.println(Constants.SCREEN_HEIGHT + "AND" + Constants.SCREEN_WIDTH);
         // 220 is  guess and check val cuz of the bottom black part of phone
 
     }
@@ -32,13 +32,13 @@ public class Sprite {
     // the 5 is a guess and check value to keep the object on the screen
     public void moveLeft() {
         this.x = x > speed - 5 ? this.x - speed : this.x;
-        System.out.println(this.x + "HEIGHT" + this.y);
+//        System.out.println(this.x + "HEIGHT" + this.y);
 
     }
 
     public void moveRight() {
         this.x = x < Constants.SCREEN_WIDTH - speed - 255 ? this.x + speed : this.x;
-        System.out.println(this.x + "HEIGHT" + this.y);
+//        System.out.println(this.x + "HEIGHT" + this.y);
 
     }
 

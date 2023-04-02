@@ -1,9 +1,11 @@
-package com.example.firstapptests;
+package com.example.firstapptests.enemies;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+
+import com.example.firstapptests.Constants;
 
 import java.util.ArrayList;
 
@@ -49,7 +51,7 @@ public class EelManager {
             }
             if(eelEnemies.get(0).offScreen()){        //if goes off screen
 //            int xStart = (int) (Math.random()*(Constants.SCREEN_WIDTH - playerGap));
-                System.out.println("OFF SCREEN");
+//                System.out.println("OFF SCREEN");
                 eelEnemies.remove(0);
                 eelEnemies.add(eelEnemies.size() - 1,
                         new EelEnemy(image, xStart, 1800, 20, 1));

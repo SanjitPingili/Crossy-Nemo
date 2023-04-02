@@ -48,7 +48,7 @@ public class GameScreen extends AppCompatActivity {
 //                byte[] b = baos.toByteArray();
                 Intent intent = new Intent(GameScreen.this, CrossRoad.class);
                 intent.putExtra("charUsed", character);
-                System.out.println("Character is  " + character);
+//                System.out.println("Character is  " + character);
                 startActivity(intent);
             }
         });

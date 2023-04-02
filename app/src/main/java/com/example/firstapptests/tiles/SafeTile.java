@@ -1,4 +1,4 @@
-package com.example.firstapptests;
+package com.example.firstapptests.tiles;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
