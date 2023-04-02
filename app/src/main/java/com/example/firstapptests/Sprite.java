@@ -69,13 +69,13 @@ public class Sprite {
     }
 
     public void draw(Canvas canvas) {
-        float tempX = (float) x;
-        float tempY = (float) y;
-        Paint paint = new Paint();
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(5);
-        paint.setColor(Color.BLACK);
-        canvas.drawRect(tempX+30,tempY+30,tempX+150,tempY+150, paint);
+//        float tempX = (float) x;
+//        float tempY = (float) y;
+//        Paint paint = new Paint();
+//        paint.setStyle(Paint.Style.STROKE);
+//        paint.setStrokeWidth(5);
+//        paint.setColor(Color.BLACK);
+//        canvas.drawRect(tempX+30,tempY+30,tempX+150,tempY+150, paint);
         canvas.drawBitmap(image, this.x, this.y, null);
     }
 

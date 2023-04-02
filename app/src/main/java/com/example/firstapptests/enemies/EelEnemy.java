@@ -32,13 +32,13 @@ public class EelEnemy implements Enemy {
     @Override
     public void draw(Canvas canvas) {
         canvas.drawBitmap(image, this.x + EelGap, this.y, null);
-        float tempX = (float) x;
-        float tempY = (float) y;
-        Paint paint = new Paint();
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(5);
-        paint.setColor(Color.BLACK);
-        canvas.drawRect(tempX,tempY+100,tempX+320,tempY+220, paint);
+//        float tempX = (float) x;
+//        float tempY = (float) y;
+//        Paint paint = new Paint();
+//        paint.setStyle(Paint.Style.STROKE);
+//        paint.setStrokeWidth(5);
+//        paint.setColor(Color.BLACK);
+//        canvas.drawRect(tempX,tempY+100,tempX+320,tempY+220, paint);
         canvas.drawBitmap(image, this.x, this.y, null);
     }
 

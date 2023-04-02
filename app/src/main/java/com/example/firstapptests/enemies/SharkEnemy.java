@@ -40,13 +40,13 @@ public class SharkEnemy implements Enemy {
     @Override
     public void draw(Canvas canvas) {
         canvas.drawBitmap(image, this.x + SharkGap, this.y, null);
-        float tempX = (float) x;
-        float tempY = (float) y;
-        Paint paint = new Paint();
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(5);
-        paint.setColor(Color.BLACK);
-        canvas.drawRect(tempX+30,tempY+0,tempX+100,tempY+100, paint);
+//        float tempX = (float) x;
+//        float tempY = (float) y;
+//        Paint paint = new Paint();
+//        paint.setStyle(Paint.Style.STROKE);
+//        paint.setStrokeWidth(5);
+//        paint.setColor(Color.BLACK);
+//        canvas.drawRect(tempX+30,tempY+0,tempX+100,tempY+100, paint);
     }
 
     @Override
