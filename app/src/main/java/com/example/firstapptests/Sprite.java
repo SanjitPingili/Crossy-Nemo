@@ -2,6 +2,8 @@ package com.example.firstapptests;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 
 // 1794 AND 1080
 public class Sprite {
@@ -60,13 +62,28 @@ public class Sprite {
     }
 
     public void draw(Canvas canvas) {
+        float tempX = (float) x;
+        float tempY = (float) y;
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(5);
+        paint.setColor(Color.BLACK);
+        canvas.drawRect(tempX+30,tempY+30,tempX+150,tempY+150, paint);
         canvas.drawBitmap(image, this.x, this.y, null);
     }
 
-//    public void update (int x, int y) {
-//        this.x+= speed;
-//        this.y += speed;
-//        canvas.drawBitmap(image, this.x, this.y, null);
-//    }
+    public boolean intersectsBox(int x1, int x2, int y1, int y2) {
+        int bx1 = x + 30;
+        int by1 = y + 30;
+        int bx2 = x + 150;
+        int by2 = y + 150;
+        int by = (by2+by1)/2;
+        if (by >= y1 && by <= y2) {
+            if (x1 < bx2 && x1 > bx1) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
