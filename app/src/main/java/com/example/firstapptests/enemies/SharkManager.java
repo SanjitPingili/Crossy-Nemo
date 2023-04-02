@@ -47,9 +47,10 @@ public class SharkManager {
         startTime = System.currentTimeMillis();
         int xStart = Constants.SCREEN_WIDTH - 200;
         for(SharkEnemy shk : sharkEnemies){
-            if (shk.intersectsBox(player.getBoundingBox())){
-                player.dead();
-            }
+//            TODO: Uncomment to add collision with sharks
+//            if (shk.intersectsBox(player.getBoundingBox())){
+//                player.dead();
+//            }
             shk.update(10);
         }
         if(sharkEnemies.get(0).offScreen(sharkEnemies.get(0).getX())){

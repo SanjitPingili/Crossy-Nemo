@@ -25,9 +25,9 @@ public class Sprite {
 
     public void moveUp() {
         this.y = y > speed ? this.y - speed : this.y;
-//        if (this.y < 550) {
-//            dead();
-//        }
+        if (this.y < 870) {
+            dead();
+        }
     }
 
     public void moveDown() {
