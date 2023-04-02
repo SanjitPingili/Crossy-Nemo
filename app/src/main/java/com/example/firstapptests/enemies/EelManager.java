@@ -49,7 +49,7 @@ public class EelManager {
             int xStart = Constants.SCREEN_WIDTH - 200;
             for(EelEnemy whle : eelEnemies){
                 if (whle.intersectsBox(player.getBoundingBox())){
-                    System.out.println("Life lost.");
+                    player.dead();
                 }
                 whle.update(10);
             }

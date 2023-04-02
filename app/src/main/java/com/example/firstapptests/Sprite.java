@@ -11,8 +11,10 @@ public class Sprite {
     private int x;
     private int y;
     private final int speed = 10;
+    private int lives;
 
-    public Sprite(Bitmap bmp, int x, int y) {
+    public Sprite(Bitmap bmp, int x, int y, int lives) {
+        this.lives = lives;
         image = bmp;
         this.x = x;
         this.y = y;
@@ -90,4 +92,12 @@ public class Sprite {
         return new int[] {x+30, y+30, x+150, y+150};
     }
 
+    public void dead() {
+        lives--;
+        if (lives > 0) {
+            System.out.println("Life lost... You have " + lives + " lives remaining.");
+        } else {
+            System.out.println("Game Over.");
+        }
+    }
 }

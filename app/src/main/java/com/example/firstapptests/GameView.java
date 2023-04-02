@@ -30,12 +30,14 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private RiverTile riverTile;
     private Canvas canvas = getHolder().lockCanvas();
     private int score = 0;
+    private int lives;
     String c;
 
-    public GameView(Context context, String c) {
+    public GameView(Context context, String c, int lives) {
         super(context);
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
+        this.lives = lives;
         this.c = c;
         setFocusable(true);
 
@@ -107,8 +109,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         Bitmap bm1 = BitmapFactory.decodeResource(getResources(), getCharacterSprite(c));
         characterSprite = new Sprite(getResizedBitmap(bm1, 200, 200),
-                700, 2100);
-        
+                700, 2100, lives);
+
         Bitmap bm0 = BitmapFactory.decodeResource(getResources(), R.drawable.whale);
         whaleManager = new WhaleManager(getResizedBitmap(bm0, 150, 150), 30);
 

@@ -33,9 +33,10 @@ public class CrossRoad extends Activity {
 //        image.setImageBitmap(bmp);
         Bundle intent = getIntent().getExtras();
         String characterNeeded = (String) intent.get("charUsed");
+        int lives = (int) intent.get("lives");
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setGameView(new GameView(this, characterNeeded));
+        setGameView(new GameView(this, characterNeeded, lives));
         setContentView(getGameView()); // This allows us to work off the canvas
     }
 
