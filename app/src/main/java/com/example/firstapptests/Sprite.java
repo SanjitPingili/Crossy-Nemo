@@ -13,7 +13,10 @@ public class Sprite {
     private final int speed = 10;
     private int lives;
 
-    public Sprite(Bitmap bmp, int x, int y, int lives) {
+    private GameView gameView;
+
+    public Sprite(GameView gameView, Bitmap bmp, int x, int y, int lives) {
+        this.gameView = gameView;
         this.lives = lives;
         image = bmp;
         this.x = x;
@@ -95,9 +98,20 @@ public class Sprite {
     public void dead() {
         lives--;
         if (lives > 0) {
-            System.out.println("Life lost... You have " + lives + " lives remaining.");
+            respawn();
         } else {
-            System.out.println("Game Over.");
+            gameOver();
         }
+    }
+
+    private void gameOver() {
+        System.out.println("Game Over.");
+    }
+
+    private int respawn() {
+        setPositions(700, 2100);
+        gameView.resetScore();
+        System.out.println("Life lost... You have " + lives + " lives remaining.");
+        return lives;
     }
 }

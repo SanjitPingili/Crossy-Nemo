@@ -96,6 +96,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         return newScore;
     }
 
+    public int resetScore() {
+        score = 0;
+        return score;
+    }
+
 
 
     @Override
@@ -108,7 +113,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         // Character Declaration
 
         Bitmap bm1 = BitmapFactory.decodeResource(getResources(), getCharacterSprite(c));
-        characterSprite = new Sprite(getResizedBitmap(bm1, 200, 200),
+        characterSprite = new Sprite(this, getResizedBitmap(bm1, 200, 200),
                 700, 2100, lives);
 
         Bitmap bm0 = BitmapFactory.decodeResource(getResources(), R.drawable.whale);
