@@ -108,7 +108,4 @@ public class ConfigScreen extends AppCompatActivity {
         return !isNullUserName(userName.getText())
                 && checkUserNameString(userName.getText().toString());
     }
-
-
-
 }

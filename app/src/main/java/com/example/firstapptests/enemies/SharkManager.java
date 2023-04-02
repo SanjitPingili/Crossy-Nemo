@@ -33,9 +33,9 @@ public class SharkManager {
 
     // ENEMY_SPACING Not being used right
     private void populateSharks(int spacing) {
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 4; i++) {
             sharkEnemies.add(new SharkEnemy(image, spacing, 1200, ENEMY_SPACING, 15));
-            spacing+=200;
+            spacing+=400;
         }
     }
 
@@ -47,10 +47,9 @@ public class SharkManager {
         startTime = System.currentTimeMillis();
         int xStart = Constants.SCREEN_WIDTH - 200;
         for(SharkEnemy shk : sharkEnemies){
-//            TODO: Uncomment to add collision with sharks
-//            if (shk.intersectsBox(player.getBoundingBox())){
-//                player.dead();
-//            }
+            if (shk.intersectsBox(player.getBoundingBox())){
+                player.dead();
+            }
             shk.update(10);
         }
         if(sharkEnemies.get(0).offScreen(sharkEnemies.get(0).getX())){
