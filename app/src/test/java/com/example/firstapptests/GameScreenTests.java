@@ -37,5 +37,11 @@ public class GameScreenTests {
     public void checkTurtle1Sprite() {assertEquals(R.drawable.turtleofficial, gameScreen.getCharacterSprite("turtle1"));}
     @Test
     public void checkTurtle2Sprite() {assertEquals(R.drawable.turtlenemo, gameScreen.getCharacterSprite("turtle2"));}
+    // New Test
+    @Test
+    public void checkOtherSprite() {assertEquals(0, gameScreen.getCharacterSprite("turtle6"));}
+
+    @Test
+    public void checkOtherLives() {assertEquals(0, gameScreen.getLives("turtle6"));}
 
 }

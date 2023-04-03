@@ -68,10 +68,11 @@ public class SharkEnemy implements Enemy {
     }
 
     public boolean intersectsCoords(int x1, int x2, int y1, int y2) {
-        int bx1 = x + 30;
+        int bx1 = x + 30; // 80
         int by1 = y + 0;
-        int bx2 = x + 100;
+        int bx2 = x + 100; // 150
         int by2 = y + 100;
+        // 1300 = by2, by1 = 1200 = 1250
         int by = (by2+by1)/2;
         if (by+30 >= y1 && by-30 <= y2) {
             if (x1 < bx2 && x1 > bx1) {
