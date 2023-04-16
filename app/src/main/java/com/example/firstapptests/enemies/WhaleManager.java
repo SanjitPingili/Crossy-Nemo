@@ -25,19 +25,19 @@ public class WhaleManager {
         this.image = bm;
         startTime = initTime = System.currentTimeMillis();
         whaleEnemies = new ArrayList<WhaleEnemy>();
-        populateWhales(Constants.SCREEN_WIDTH-200);
+        populateWhales(Constants.SCREEN_WIDTH - 200);
     }
 
     // ENEMY_SPACING Not being used right
     private void populateWhales(int spacing) {
         for (int i = 0; i < 5; i++) {
             whaleEnemies.add(new WhaleEnemy(image, spacing, 600, ENEMY_SPACING, 15));
-            spacing+=320;
+            spacing += 320;
         }
     }
 
-    public void update(){
-        if(startTime < Constants.INIT_TIME){
+    public void update() {
+        if (startTime < Constants.INIT_TIME) {
             startTime = Constants.INIT_TIME;
         }
         int elapsedTime = (int) (System.currentTimeMillis() - startTime);
@@ -46,10 +46,10 @@ public class WhaleManager {
 //        float speed = (float)(Math.sqrt(1 + (startTime - initTime)/2000.0))* Constants.SCREEN_WIDTH/(10000.0f);             //sets speed for cars to reach bottom of screen (10s)
 //        System.out.println("Speed is" + speed /10);
         int xStart = Constants.SCREEN_WIDTH - 200;
-        for(WhaleEnemy whle : whaleEnemies){
+        for (WhaleEnemy whle : whaleEnemies) {
             whle.update(10);
         }
-        if(whaleEnemies.get(0).offScreen()){        //if goes off screen
+        if (whaleEnemies.get(0).offScreen()) {        //if goes off screen
 //            int xStart = (int) (Math.random()*(Constants.SCREEN_WIDTH - playerGap));
 //            System.out.println("OFF SCREEN");
             whaleEnemies.remove(0);
@@ -58,8 +58,9 @@ public class WhaleManager {
             xStart -= 200;
         }
     }
-    public void draw(Canvas canvas){
-        for(WhaleEnemy whl: whaleEnemies) {
+
+    public void draw(Canvas canvas) {
+        for (WhaleEnemy whl : whaleEnemies) {
             whl.draw(canvas);
         }
     }
