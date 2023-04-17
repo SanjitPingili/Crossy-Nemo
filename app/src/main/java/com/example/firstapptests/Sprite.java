@@ -35,6 +35,7 @@ public class Sprite {
         if (this.y < 870 && !onLog) {
             dead();
         }
+        won();
     }
 
     public void moveDown() {
@@ -122,7 +123,7 @@ public class Sprite {
     }
 
     public void won() {
-        if (this.y >= 155) {
+        if (this.y <= 155) {
             win();
         }
     }

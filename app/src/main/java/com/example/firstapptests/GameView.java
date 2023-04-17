@@ -258,6 +258,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         thread.setRunning(false);
         Intent intent = new Intent(getContext(), WinGameScreen.class);
         System.out.println(score);
+        score += 8;
         intent.putExtra("score", score);
         getContext().startActivity(intent);
 

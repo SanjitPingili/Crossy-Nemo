@@ -14,6 +14,9 @@
             android:name=".EndGameScreen"
             android:exported="false" />
         <activity
+            android:name=".WinGameScreen"
+            android:exported="false" />
+        <activity
             android:name=".GameScreen"
             android:exported="false" />
         <activity
