@@ -141,4 +141,7 @@ public class Sprite {
     public boolean isOnLog() {
         return onLog;
     }
+    public void detach() {
+        onLog = false;
+    }
 }

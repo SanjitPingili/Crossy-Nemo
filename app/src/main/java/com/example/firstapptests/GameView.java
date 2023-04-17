@@ -161,7 +161,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         Constants.INIT_TIME = System.currentTimeMillis();
         thread.setRunning(true);
         thread.start();
-
     }
 
     int getCharacterSprite(String character) {

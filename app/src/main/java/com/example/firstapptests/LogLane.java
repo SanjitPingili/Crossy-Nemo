@@ -36,24 +36,14 @@ public class LogLane {
             l.draw(canvas);
         }
     }
+    boolean wasOnLog;
 
     public void update() {
-//        Iterator<Log> it = logs.iterator();
-//        while (it.hasNext()) {
-//            Log l = it.next();
-//            l.update();
-//            if (l.intersectsBox(player.getBoundingBox())) {
-//                l.attach();
-//                player.attach(l.getCenterX(), l.getCenterY(), l.getSpeed());
-//            }
-////            if (l.offScreen()) {
-////                it.remove();
-////                addNewLog(300);
-////            }
-//        }
+        wasOnLog = false;
         for (Log l : logs) {
             l.update();
             if (l.intersectsBox(player.getBoundingBox())) {
+                wasOnLog = true;
                 l.attach();
                 player.attach(l.getCenterX(), l.getCenterY(), l.getSpeed());
             }
@@ -63,19 +53,7 @@ public class LogLane {
                 } else {
                     l.setX(1400+350);
                 }
-
             }
         }
-//        if (direction == 1) {
-//            if (logs.get(logs.size() - 1).offScreen()) {
-//                logs.remove(logs.size() - 1);
-//                addNewLog(300);
-//            }
-//        } else {
-//            if (logs.get(0).offScreen()) {
-//                logs.remove(0);
-//                addNewLog(300, 1000);
-//            }
-//        }
     }
 }
