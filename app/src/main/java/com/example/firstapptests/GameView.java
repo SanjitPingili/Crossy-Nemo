@@ -261,7 +261,5 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         score += 8;
         intent.putExtra("score", score);
         getContext().startActivity(intent);
-
-
     }
 }
