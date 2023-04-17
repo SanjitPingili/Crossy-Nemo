@@ -142,12 +142,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         sharkManager = new SharkManager(getResizedBitmap(bm, 100, 100), 30, characterSprite);
 
         logLane1 = new LogLane(850, 1, characterSprite);
-        logLane2 = new LogLane(750, 1, characterSprite);
-        logLane3 = new LogLane(650, 1, characterSprite);
-        logLane4 = new LogLane(550, 1, characterSprite);
-        logLane5 = new LogLane(450, 1, characterSprite);
-        logLane6 = new LogLane(350, 1, characterSprite);
-        logLane7 = new LogLane(250, 1, characterSprite);
+        logLane2 = new LogLane(740, -1, characterSprite);
+        logLane3 = new LogLane(630, 1, characterSprite);
+        logLane4 = new LogLane(520, -1, characterSprite);
+        logLane5 = new LogLane(410, 1, characterSprite);
+        logLane6 = new LogLane(300, -1, characterSprite);
+        logLane7 = new LogLane(190, 1, characterSprite);
 
 
         // tile Stuff

@@ -90,4 +90,8 @@ public class Log {
     public boolean getHasPlayer() {
         return hasPlayer;
     }
+
+    public void setX(int x) {
+        this.x = x;
+    }
 }

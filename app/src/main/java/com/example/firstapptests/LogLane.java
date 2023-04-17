@@ -27,7 +27,7 @@ public class LogLane {
         addNewLog(width, 0);
     }
     public void addNewLog(int width, int x) {
-        logs.add(new Log(x-width, y, width,10, direction));
+        logs.add(new Log(x-width, y, width,7, direction));
     }
 
 
@@ -57,17 +57,25 @@ public class LogLane {
                 l.attach();
                 player.attach(l.getCenterX(), l.getCenterY(), l.getSpeed());
             }
-        }
-        if (direction == 1) {
-            if (logs.get(logs.size() - 1).offScreen()) {
-                logs.remove(logs.size() - 1);
-                addNewLog(300);
-            }
-        } else {
-            if (logs.get(0).offScreen()) {
-                logs.remove(0);
-                addNewLog(300, 1000);
+            if (l.offScreen()) {
+                if (direction == 1) {
+                    l.setX(-450);
+                } else {
+                    l.setX(1400+350);
+                }
+
             }
         }
+//        if (direction == 1) {
+//            if (logs.get(logs.size() - 1).offScreen()) {
+//                logs.remove(logs.size() - 1);
+//                addNewLog(300);
+//            }
+//        } else {
+//            if (logs.get(0).offScreen()) {
+//                logs.remove(0);
+//                addNewLog(300, 1000);
+//            }
+//        }
     }
 }
