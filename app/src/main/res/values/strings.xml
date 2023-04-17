@@ -9,6 +9,7 @@
     <string name="hard">Hard</string>
     <string name="gameScreenText">This is the game screen.</string>
     <string name="game_over">GAME OVER</string>
+    <string name="congrats_message">CONGRATULATIONS!</string>
     <string name="restart">RESTART</string>
     <string name="exit">EXIT</string>
 </resources>

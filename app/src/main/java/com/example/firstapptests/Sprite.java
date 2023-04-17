@@ -106,6 +106,16 @@ public class Sprite {
         }
     }
 
+    public void won() {
+        if (this.y >= 155) {
+            win();
+        }
+    }
+
+    private void win() {
+        gameView.winScreen();
+    }
+
     private void gameOver() {
         gameView.gameOver();
     }
