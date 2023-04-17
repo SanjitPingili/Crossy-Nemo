@@ -28,6 +28,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private SharkManager sharkManager;
     private WhaleManager whaleManager;
     private EelManager eelManager;
+    private LogLane logLane;
     private RiverTile riverTile;
     private Canvas canvas = getHolder().lockCanvas();
     private int score = 0;
@@ -48,6 +49,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         sharkManager.update();
         whaleManager.update();
         eelManager.update();
+        logLane.update();
     }
 
     // KEY MOVEMENT
@@ -126,6 +128,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.shark);
         sharkManager = new SharkManager(getResizedBitmap(bm, 100, 100), 30, characterSprite);
 
+        logLane = new LogLane(850, 1, characterSprite);
+
 
         // tile Stuff
         safeTile1 = new SafeTile(getResizedBitmap(BitmapFactory
@@ -191,12 +195,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             safeTile1.draw(canvas);
             goalTile.draw(canvas);
             riverTile.draw(canvas);
+            logLane.draw(canvas);
             characterSprite.draw(canvas);
             sharkManager.draw(canvas, score);
             whaleManager.draw(canvas);
             eelManager.draw(canvas, score);
-
-
         }
     }
 

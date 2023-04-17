@@ -10,8 +10,11 @@ public class Sprite {
     private Bitmap image;
     private int x;
     private int y;
-    private final int speed = 10;
+    private final int speed = 45;
     private int lives;
+
+    private int logSpeed;
+    private boolean onLog;
 
     private GameView gameView;
 
@@ -25,7 +28,7 @@ public class Sprite {
 
     public void moveUp() {
         this.y = y > speed ? this.y - speed : this.y;
-        if (this.y < 870) {
+        if (this.y < 870 && !onLog) {
             dead();
         }
     }
@@ -115,5 +118,15 @@ public class Sprite {
         gameView.resetScore();
         System.out.println("Life lost... You have " + lives + " lives remaining.");
         return lives;
+    }
+
+    public void attach(int centerX, int centerY, int speed) {
+        x = centerX - 90;
+        y = centerY - 90;
+        logSpeed = speed;
+        onLog = true;
+    }
+    public boolean isOnLog() {
+        return onLog;
     }
 }
