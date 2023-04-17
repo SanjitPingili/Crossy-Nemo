@@ -27,14 +27,26 @@ public class Sprite {
     }
 
     public void moveUp() {
-        this.y = y > speed ? this.y - speed : this.y;
+        if (!onLog) {
+            this.y = y > speed ? this.y - speed : this.y;
+        } else {
+            this.y = y > speed ? this.y - (speed + 55) : this.y;
+        }
         if (this.y < 870 && !onLog) {
             dead();
         }
     }
 
     public void moveDown() {
-        this.y = y < Constants.SCREEN_HEIGHT - speed - 220 ? this.y + speed : this.y;
+
+        if (!onLog) {
+            this.y = y < Constants.SCREEN_HEIGHT - speed - 220 ? this.y + speed : this.y;
+        } else {
+            this.y = y < Constants.SCREEN_HEIGHT - speed - 220 ? this.y + (speed+55) : this.y;
+        }
+        if (this.y < 870 && !onLog) {
+            dead();
+        }
 //        System.out.println(this.x + "HEIGHT" + this.y);
 //        System.out.println(Constants.SCREEN_HEIGHT + "AND" + Constants.SCREEN_WIDTH);
         // 220 is  guess and check val cuz of the bottom black part of phone

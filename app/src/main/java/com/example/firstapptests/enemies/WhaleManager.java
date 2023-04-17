@@ -31,7 +31,7 @@ public class WhaleManager {
     // ENEMY_SPACING Not being used right
     private void populateWhales(int spacing) {
         for (int i = 0; i < 5; i++) {
-            whaleEnemies.add(new WhaleEnemy(image, spacing, 600, ENEMY_SPACING, 15));
+            whaleEnemies.add(new WhaleEnemy(image, spacing, 1500, ENEMY_SPACING, 15));
             spacing += 320;
         }
     }
@@ -54,7 +54,7 @@ public class WhaleManager {
 //            System.out.println("OFF SCREEN");
             whaleEnemies.remove(0);
             whaleEnemies.add(whaleEnemies.size() - 1,
-                    new WhaleEnemy(image, xStart, 600, 20, 1));
+                    new WhaleEnemy(image, xStart, 1500, 20, 1));
             xStart -= 200;
         }
     }

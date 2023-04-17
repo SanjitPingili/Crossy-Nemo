@@ -25,7 +25,7 @@ public class Log {
         float y1 = (float) y;
         Paint paint = new Paint();
         paint.setColor(Color.argb(255, 181, 101, 30));
-        canvas.drawRect(x1,y1,x1+width, y1+120, paint);
+        canvas.drawRect(x1,y1 + 10,x1+width, y1+height, paint);
     }
     public void update() {
         x += speed;

@@ -17,6 +17,7 @@ import com.example.firstapptests.enemies.WhaleManager;
 import com.example.firstapptests.tiles.GoalTile;
 import com.example.firstapptests.tiles.RiverTile;
 import com.example.firstapptests.tiles.SafeTile;
+import com.google.android.material.appbar.AppBarLayout;
 
 //import androidx.annotation.MainThread;
 
@@ -28,7 +29,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private SharkManager sharkManager;
     private WhaleManager whaleManager;
     private EelManager eelManager;
-    private LogLane logLane;
+    private LogLane logLane1;
+    private LogLane logLane2;
+    private LogLane logLane3;
+    private LogLane logLane4;
+    private LogLane logLane5;
+    private LogLane logLane6;
+    private LogLane logLane7;
     private RiverTile riverTile;
     private Canvas canvas = getHolder().lockCanvas();
     private int score = 0;
@@ -49,7 +56,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         sharkManager.update();
         whaleManager.update();
         eelManager.update();
-        logLane.update();
+        logLane1.update();
+        logLane2.update();
+        logLane3.update();
+        logLane4.update();
+        logLane5.update();
+        logLane6.update();
+        logLane7.update();
     }
 
     // KEY MOVEMENT
@@ -128,7 +141,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.shark);
         sharkManager = new SharkManager(getResizedBitmap(bm, 100, 100), 30, characterSprite);
 
-        logLane = new LogLane(850, 1, characterSprite);
+        logLane1 = new LogLane(850, 1, characterSprite);
+        logLane2 = new LogLane(750, 1, characterSprite);
+        logLane3 = new LogLane(650, 1, characterSprite);
+        logLane4 = new LogLane(550, 1, characterSprite);
+        logLane5 = new LogLane(450, 1, characterSprite);
+        logLane6 = new LogLane(350, 1, characterSprite);
+        logLane7 = new LogLane(250, 1, characterSprite);
 
 
         // tile Stuff
@@ -195,7 +214,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             safeTile1.draw(canvas);
             goalTile.draw(canvas);
             riverTile.draw(canvas);
-            logLane.draw(canvas);
+            logLane1.draw(canvas);
+            logLane2.draw(canvas);
+            logLane3.draw(canvas);
+            logLane4.draw(canvas);
+            logLane5.draw(canvas);
+            logLane6.draw(canvas);
+            logLane7.draw(canvas);
             characterSprite.draw(canvas);
             sharkManager.draw(canvas, score);
             whaleManager.draw(canvas);

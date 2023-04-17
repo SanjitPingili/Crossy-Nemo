@@ -18,8 +18,9 @@ public class LogLane {
         this.player = player;
         this.y = y;
         this.direction = direction;
-        addNewLog(300, 700);
-        addNewLog(300, 0);
+        int x = (int) (Math.random()*350);
+        addNewLog(250, x+650);
+        addNewLog(400, x);
     }
 
     public void addNewLog(int width) {
@@ -37,17 +38,35 @@ public class LogLane {
     }
 
     public void update() {
-        Iterator<Log> it = logs.iterator();
-        while (it.hasNext()) {
-            Log l = it.next();
+//        Iterator<Log> it = logs.iterator();
+//        while (it.hasNext()) {
+//            Log l = it.next();
+//            l.update();
+//            if (l.intersectsBox(player.getBoundingBox())) {
+//                l.attach();
+//                player.attach(l.getCenterX(), l.getCenterY(), l.getSpeed());
+//            }
+////            if (l.offScreen()) {
+////                it.remove();
+////                addNewLog(300);
+////            }
+//        }
+        for (Log l : logs) {
             l.update();
             if (l.intersectsBox(player.getBoundingBox())) {
                 l.attach();
                 player.attach(l.getCenterX(), l.getCenterY(), l.getSpeed());
             }
-            if (l.offScreen()) {
-                it.remove();
+        }
+        if (direction == 1) {
+            if (logs.get(logs.size() - 1).offScreen()) {
+                logs.remove(logs.size() - 1);
                 addNewLog(300);
+            }
+        } else {
+            if (logs.get(0).offScreen()) {
+                logs.remove(0);
+                addNewLog(300, 1000);
             }
         }
     }
