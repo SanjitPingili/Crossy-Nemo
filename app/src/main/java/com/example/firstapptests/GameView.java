@@ -49,7 +49,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         this.lives = lives;
         this.c = c;
         setFocusable(true);
-
     }
 
     public void update(){
@@ -252,5 +251,16 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         System.out.println(score);
         intent.putExtra("score", score);
         getContext().startActivity(intent);
+    }
+
+    public void winScreen() {
+        System.out.println("You Won!");
+        thread.setRunning(false);
+        Intent intent = new Intent(getContext(), WinGameScreen.class);
+        System.out.println(score);
+        intent.putExtra("score", score);
+        getContext().startActivity(intent);
+
+
     }
 }

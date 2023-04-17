@@ -28,9 +28,13 @@ public class ScoreTests {
     @Test
     public void checkScoreMid2() {assertEquals(9, GameView.calculateScore(1199));}
     @Test
+    public void checkScoreLong2() {assertEquals(9, GameView.calculateScore(1190));}
+    @Test
     public void checkScoreMid3() {assertEquals(15, GameView.calculateScore(849));}
     @Test
     public void checkScoreMid4() {assertEquals(22, GameView.calculateScore(599));}
     @Test
     public void checkScoreEnd() {assertEquals(30, GameView.calculateScore(99));}
+    @Test
+    public void checkScoreEnd2() {assertEquals(30, GameView.calculateScore(98));}
 }
